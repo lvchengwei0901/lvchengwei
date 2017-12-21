@@ -21,7 +21,7 @@ public class User {
 	/** 
 	 * 主键
 	 */  
-	private Long id;
+	private long id;
 	
 	/** 
 	 * 名字 
@@ -31,7 +31,7 @@ public class User {
 	/** 
 	 * 年龄 
 	 */  
-	private Integer age;
+	private int age;
 	
 	/** 
 	 * 创建时间 
@@ -43,11 +43,11 @@ public class User {
 	 */  
 	private Date updateTime;
 
-	public Long getId() {
+	public long getId() {
 		return id;
 	}
 
-	public void setId(Long id) {
+	public void setId(long id) {
 		this.id = id;
 	}
 
@@ -59,11 +59,11 @@ public class User {
 		this.name = name;
 	}
 
-	public Integer getAge() {
+	public int getAge() {
 		return age;
 	}
 
-	public void setAge(Integer age) {
+	public void setAge(int age) {
 		this.age = age;
 	}
 
@@ -82,7 +82,5 @@ public class User {
 	public void setUpdateTime(Date updateTime) {
 		this.updateTime = updateTime;
 	}
-	
-	
 
 }
