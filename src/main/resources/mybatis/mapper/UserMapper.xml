@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="UserDao">
+	<resultMap id="BaseResultMap" type="User">
+		<id column="id" property="id" jdbcType="BIGINT" />
+		<result column="name" property="name" jdbcType="VARCHAR" />
+		<result column="age" property="age" jdbcType="INTEGER" />
+		<result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+		<result column="update_time" property="updateTime" jdbcType="TIMESTAMP" />
+	</resultMap>
+	<sql id="Base_Column_List">
+		id,
+		name,
+		age,
+		create_time,
+		update_time
+	</sql>
+	
+	<insert id="addUser" parameterType="User">
+		INSERT INTO `user` (NAME, age, create_time)
+		VALUES
+			(#{name}, #{age}, NOW())
+	</insert>
+	
+	<delete id="deleteUser" parameterType="Long">
+		DELETE
+		FROM
+			`user`
+		WHERE
+			id = #{id}
+	</delete>
+	
+	<update id="updateUser" parameterType="map">
+		UPDATE USER
+		SET age = #{age}
+		WHERE
+			id = #{id}
+	</update>
+	
+	<select id="selectUser" parameterType="Long" resultMap="BaseResultMap">
+		SELECT <include refid="Base_Column_List" />
+		FROM
+			`user`
+		WHERE
+			id = #{id}
+	</select>
+
+</mapper>
