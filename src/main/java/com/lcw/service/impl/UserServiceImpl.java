@@ -44,4 +44,11 @@ public class UserServiceImpl implements UserService{
 		return userDao.selectUser(id);
 	}
 
+	public void testTransaction() {
+		userDao.updateUser(11, 2);
+		System.out.println("----------------------");
+		int b = 3/0;
+		userDao.updateUser(11, 3);
+	}
+
 }

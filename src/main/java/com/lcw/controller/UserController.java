@@ -51,5 +51,14 @@ public class UserController {
 		}
 		return result;
 	}
+	
+	@RequestMapping("/testTransaction")
+	public void testTransaction(HttpServletRequest request,HttpServletResponse response){
+		try {
+			userService.testTransaction();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
 
 }

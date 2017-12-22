@@ -7,6 +7,7 @@
 
 package com.lcw.dao;
 
+import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
 
 import com.lcw.entity.User;
@@ -25,7 +26,7 @@ public interface UserDao {
 	
 	public void deleteUser(long id);
 	
-	public void updateUser(int age,long id);
+	public void updateUser(@Param("age")int age,@Param("id")long id);
 	
 	public User selectUser(long id);
 
