@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.lcw.dao.UserDao">
-	<resultMap id="BaseResultMap" type="User">
+	<resultMap id="BaseResultMap" type="com.lcw.entity.User">
 		<id column="id" property="id" jdbcType="BIGINT" />
 		<result column="name" property="name" jdbcType="VARCHAR" />
 		<result column="age" property="age" jdbcType="INTEGER" />
@@ -17,7 +17,7 @@
 	</sql>
 	
 	
-	<insert id="addUser" parameterType="User">
+	<insert id="addUser" parameterType="com.lcw.entity.User">
 		INSERT INTO `user` (NAME, age, create_time)
 		VALUES
 			(#{name}, #{age}, NOW())
