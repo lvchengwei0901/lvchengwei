@@ -47,6 +47,7 @@ public class UserServiceImpl implements UserService{
 	public void testTransaction() {
 		userDao.updateUser(11, 2);
 		System.out.println("----------------------");
+		@SuppressWarnings("unused")
 		int b = 3/0;
 		userDao.updateUser(11, 3);
 	}
