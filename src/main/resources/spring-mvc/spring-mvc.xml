@@ -16,6 +16,15 @@
     <!-- 配置扫描 springmvc 的 controller的包 -->
     <context:component-scan base-package="com.lcw.controller" />
     
+    <!-- 避免IE执行AJAX时,返回JSON出现下载文件 -->  
+    <bean id="mappingJacksonHttpMessageConverter" class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter">  
+        <property name="supportedMediaTypes">  
+            <list>  
+                <value>text/html;charset=UTF-8</value>  
+            </list>  
+        </property>  
+    </bean> 
+    
     <mvc:annotation-driven />
 
     <bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
