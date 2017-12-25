@@ -12,8 +12,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.lcw.constants.Constants;
 import com.lcw.entity.User;
@@ -59,6 +61,36 @@ public class UserController {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+	}
+	
+	@RequestMapping("/findUser")
+	public String findUser(HttpServletRequest request,HttpServletResponse response,long id,Model model){
+		try {
+			User selectUser = userService.selectUser(id);
+			if(selectUser != null){
+				model.addAttribute("selectUser",selectUser);
+				return "user/user";
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+			return "error/error";
+		}
+		return "error/error";
+	}
+	
+	@RequestMapping("/findJspUser")
+	public ModelAndView findJspUser(HttpServletRequest request,HttpServletResponse response,long id,Model model){
+		try {
+			User selectUser = userService.selectUser(id);
+			if(selectUser != null){
+				model.addAttribute("selectUser",selectUser);
+				return new ModelAndView("hello");
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+			return new ModelAndView("hello");
+		}
+		return new ModelAndView("hello");
 	}
 
 }

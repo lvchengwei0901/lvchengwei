@@ -27,9 +27,35 @@
     
     <mvc:annotation-driven />
 
-    <bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
-        <property name="prefix" value="/WEB-INF/jsp/"/>
-        <property name="suffix" value=".jsp" />
-    </bean>
+<!--     <bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver"> -->
+<!--         <property name="prefix" value="/WEB-INF/jsp/"/> -->
+<!--         <property name="suffix" value=".jsp" /> -->
+<!--     </bean> -->
+    
+    <!-- 	freemarker配置 -->
+	<bean id="freeMarkerConfigurer" class="org.springframework.web.servlet.view.freemarker.FreeMarkerConfigurer">
+		<property name="templateLoaderPath" value="/WEB-INF/lcw/" />
+		<property name="freemarkerSettings">
+			<props>
+				<prop key="defaultEncoding">UTF-8</prop>
+				<prop key="locale">zh_CN</prop>
+				<prop key="template_update_delay">10</prop>
+				<prop key="number_format">#</prop>
+				<prop key="datetime_format">yyyy-MM-dd HH:mm:ss</prop>
+				<prop key="date_format">yyyy-MM-dd</prop>
+				<prop key="time_format">HH:mm:ss</prop>
+				<prop key="boolean_format">true,false</prop>
+			</props>
+		</property>
+	</bean>
+	
+	<bean id="freeMakerViewResolver"
+		class="org.springframework.web.servlet.view.freemarker.FreeMarkerViewResolver">
+		<property name="cache" value="true" />
+		<property name="prefix" value="" />
+		<property name="suffix" value=".html" />
+		<property name="contentType" value="text/html; charset=UTF-8" />
+		<property name="requestContextAttribute" value="request" />
+	</bean>
 
 </beans>
