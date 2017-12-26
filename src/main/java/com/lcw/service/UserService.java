@@ -7,10 +7,9 @@
 
 package com.lcw.service;
 
-import java.util.List;
-
 import com.lcw.entity.User;
 import com.lcw.entity.dto.UserDto;
+import com.lcw.entity.dto.pager.PageDto;
 import com.lcw.entity.query.UserQuery;
 
 /** 
@@ -32,6 +31,6 @@ public interface UserService {
 	
 	public void testTransaction();
 	
-	public List<UserDto> queryUser(UserQuery userQuery);
+	public PageDto<UserDto> queryUser(UserQuery userQuery);
 
 }

@@ -9,8 +9,6 @@ package com.lcw.entity.dto;
 
 import java.util.Date;
 
-import com.lcw.utils.Page;
-
 /** 
  * @ClassName: UserDto
  * @Description: TODO(用一句话描述这个类)
@@ -18,7 +16,7 @@ import com.lcw.utils.Page;
  * @author lvchengwei
  * @date: 2017年12月26日 下午3:12:19
  */
-public class UserDto extends Page{
+public class UserDto{
 	
 	/** 
 	 * 主键
