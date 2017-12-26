@@ -63,6 +63,13 @@
             <artifactId>spring-jdbc</artifactId>
             <version>4.2.5.RELEASE</version>
         </dependency>
+        
+        <!-- spring 事务支持 -->
+        <dependency>
+        	<groupId>org.springframework</groupId>
+        	<artifactId>spring-tx</artifactId>
+        	<version>${spring.version}</version>
+        </dependency>
 
         <!-- SpringMVC -->
         <dependency>
@@ -179,7 +186,15 @@
 		    <groupId>org.springframework</groupId>
 		    <artifactId>spring-context-support</artifactId>
 		    <version>3.2.4.RELEASE</version>
-		</dependency>
+		 </dependency>
+		 
+		 <!-- quartz定时器 -->
+	     <dependency>
+	         <groupId>org.quartz-scheduler</groupId>
+	         <artifactId>quartz</artifactId>
+	         <version>1.8.5</version>
+	     </dependency>
+		 
   </dependencies>
   <build>
     <finalName>lvchengwei</finalName>
