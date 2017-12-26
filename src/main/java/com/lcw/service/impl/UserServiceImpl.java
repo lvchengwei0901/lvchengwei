@@ -7,12 +7,18 @@
 
 package com.lcw.service.impl;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.annotation.Resource;
 
+import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Service;
 
 import com.lcw.dao.UserDao;
 import com.lcw.entity.User;
+import com.lcw.entity.dto.UserDto;
+import com.lcw.entity.query.UserQuery;
 import com.lcw.service.UserService;
 
 /** 
@@ -50,6 +56,19 @@ public class UserServiceImpl implements UserService{
 		@SuppressWarnings("unused")
 		int b = 3/0;
 		userDao.updateUser(11, 3);
+	}
+
+	public List<UserDto> queryUser(UserQuery userQuery) {
+		List<UserDto> userDtos = new ArrayList<UserDto>();
+		List<User> users = userDao.queryUser(userQuery);
+		if(users != null && users.size() > 0){
+			for(User user:users){
+				UserDto userDto = new UserDto();
+				BeanUtils.copyProperties(user, userDto);
+				userDtos.add(userDto);
+			}
+		}
+		return userDtos;
 	}
 
 }

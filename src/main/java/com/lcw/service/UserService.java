@@ -7,7 +7,11 @@
 
 package com.lcw.service;
 
+import java.util.List;
+
 import com.lcw.entity.User;
+import com.lcw.entity.dto.UserDto;
+import com.lcw.entity.query.UserQuery;
 
 /** 
  * @ClassName: UserService
@@ -27,5 +31,7 @@ public interface UserService {
 	public User selectUser(long id);
 	
 	public void testTransaction();
+	
+	public List<UserDto> queryUser(UserQuery userQuery);
 
 }

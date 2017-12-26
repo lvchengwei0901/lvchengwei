@@ -7,6 +7,8 @@
 
 package com.lcw.controller;
 
+import java.util.List;
+
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -19,6 +21,8 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.lcw.constants.Constants;
 import com.lcw.entity.User;
+import com.lcw.entity.dto.UserDto;
+import com.lcw.entity.query.UserQuery;
 import com.lcw.service.UserService;
 import com.lcw.utils.Result;
 
@@ -91,6 +95,25 @@ public class UserController {
 			return new ModelAndView("hello");
 		}
 		return new ModelAndView("hello");
+	}
+	
+	@RequestMapping("/queryUser")
+	@ResponseBody
+	public Result queryUser(HttpServletRequest request,HttpServletResponse response,UserQuery userQuery){
+		Result result = new Result();
+		try {
+			userQuery.setCurrentPage(3);
+			userQuery.setPageSize(2);
+			List<UserDto> userDtos = userService.queryUser(userQuery);
+			result.setCode(Constants.SUCCESS);
+			result.setMessage(Constants.SUCCESSMSG);
+			result.setResult(userDtos);
+		} catch (Exception e) {
+			e.printStackTrace();
+			result.setCode(Constants.ERROR);
+			result.setCode(Constants.ERRORMSG);
+		}
+		return result;
 	}
 
 }
