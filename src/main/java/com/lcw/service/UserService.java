@@ -8,6 +8,9 @@
 package com.lcw.service;
 
 import com.lcw.entity.User;
+import com.lcw.entity.dto.UserDto;
+import com.lcw.entity.dto.pager.PageDto;
+import com.lcw.entity.query.UserQuery;
 
 /** 
  * @ClassName: UserService
@@ -27,5 +30,7 @@ public interface UserService {
 	public User selectUser(long id);
 	
 	public void testTransaction();
+	
+	public PageDto<UserDto> queryUser(UserQuery userQuery);
 
 }

@@ -17,6 +17,7 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import utils.TestUtil;
 
+import com.lcw.entity.User;
 import com.lcw.service.UserService;
 
 /** 
@@ -38,6 +39,14 @@ public class TestService {
 		//ApplicationContext ctx = TestUtil.getCtx();
 		//UserService userService = ctx.getBean(UserService.class);
 		System.out.println(userService.selectUser(8).getName());
+	}
+	
+	@Test
+	public void addUser(){
+		User user = new User();
+		user.setAge(26);
+		user.setName("杰克");
+		userService.addUser(user);
 	}
 
 }

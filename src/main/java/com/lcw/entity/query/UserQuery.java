@@ -1,22 +1,24 @@
 /**
  * Project Name: lvchengwei
- * File Name: User.java
- * Package Name: com.lcw.entity
- * Date: 2017年12月21日下午3:14:15 
+ * File Name: UserQuery.java
+ * Package Name: com.lcw.entity.query
+ * Date: 2017年12月26日下午2:45:23 
  */
 
-package com.lcw.entity;
+package com.lcw.entity.query;
 
 import java.util.Date;
 
+import com.lcw.utils.Page;
+
 /** 
- * @ClassName: User
- * @Description:用户类
+ * @ClassName: UserQuery
+ * @Description: TODO(用一句话描述这个类)
  * 
  * @author lvchengwei
- * @date: 2017年12月21日 下午3:14:15
+ * @date: 2017年12月26日 下午2:45:23
  */
-public class User {
+public class UserQuery extends Page{
 	
 	/** 
 	 * 主键

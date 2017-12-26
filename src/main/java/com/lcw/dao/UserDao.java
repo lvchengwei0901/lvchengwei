@@ -7,10 +7,13 @@
 
 package com.lcw.dao;
 
+import java.util.List;
+
 import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
 
 import com.lcw.entity.User;
+import com.lcw.entity.query.UserQuery;
 
 /** 
  * @ClassName: UserDao
@@ -29,5 +32,7 @@ public interface UserDao {
 	public void updateUser(@Param("age")int age,@Param("id")long id);
 	
 	public User selectUser(long id);
+	
+	public List<User> queryUser(UserQuery userQuery);
 
 }

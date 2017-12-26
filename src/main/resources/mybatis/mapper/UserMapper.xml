@@ -5,6 +5,7 @@
 		<id column="id" property="id" jdbcType="BIGINT" />
 		<result column="name" property="name" jdbcType="VARCHAR" />
 		<result column="age" property="age" jdbcType="INTEGER" />
+		<result column="is_delete" property="isDelete" jdbcType="TINYINT" />
 		<result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
 		<result column="update_time" property="updateTime" jdbcType="TIMESTAMP" />
 	</resultMap>
@@ -12,6 +13,7 @@
 		id,
 		name,
 		age,
+		is_delete,
 		create_time,
 		update_time
 	</sql>
@@ -44,6 +46,19 @@
 			`user`
 		WHERE
 			id = #{id}
+	</select>
+	
+	<select id="queryUser" parameterType="com.lcw.entity.query.UserQuery" resultMap="BaseResultMap">
+		SELECT <include refid="Base_Column_List" />
+		FROM `user`
+		WHERE is_delete = 0
+		<if test="name != null and name != ''">
+			AND name = #{name}
+		</if>
+		<if test="age != 0">
+			AND age = #{age}
+		</if>
+		LIMIT #{startRecord},#{pageSize}
 	</select>
 
 </mapper>

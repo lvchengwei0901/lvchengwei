@@ -1,22 +1,22 @@
 /**
  * Project Name: lvchengwei
- * File Name: User.java
- * Package Name: com.lcw.entity
- * Date: 2017年12月21日下午3:14:15 
+ * File Name: UserDto.java
+ * Package Name: com.lcw.entity.dto
+ * Date: 2017年12月26日下午3:12:19 
  */
 
-package com.lcw.entity;
+package com.lcw.entity.dto;
 
 import java.util.Date;
 
 /** 
- * @ClassName: User
- * @Description:用户类
+ * @ClassName: UserDto
+ * @Description: TODO(用一句话描述这个类)
  * 
  * @author lvchengwei
- * @date: 2017年12月21日 下午3:14:15
+ * @date: 2017年12月26日 下午3:12:19
  */
-public class User {
+public class UserDto{
 	
 	/** 
 	 * 主键
