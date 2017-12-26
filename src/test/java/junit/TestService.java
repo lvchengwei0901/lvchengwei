@@ -7,8 +7,13 @@
 
 package junit;
 
+import javax.annotation.Resource;
+
 import org.junit.Test;
+import org.junit.runner.RunWith;
 import org.springframework.context.ApplicationContext;
+import org.springframework.test.context.ContextConfiguration;
+import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import utils.TestUtil;
 
@@ -21,13 +26,18 @@ import com.lcw.service.UserService;
  * @author lvchengwei
  * @date: 2017年12月26日 上午10:18:39
  */
+@RunWith(SpringJUnit4ClassRunner.class)
+@ContextConfiguration(locations = {"classpath:spring/spring.xml"})
 public class TestService {
+	
+	@Resource
+	private UserService userService;
 	
 	@Test
 	public void tsetService(){
-		ApplicationContext ctx = TestUtil.getCtx();
-		UserService userService = ctx.getBean(UserService.class);
-		System.out.println(userService.selectUser(3).getName());
+		//ApplicationContext ctx = TestUtil.getCtx();
+		//UserService userService = ctx.getBean(UserService.class);
+		System.out.println(userService.selectUser(8).getName());
 	}
 
 }

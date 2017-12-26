@@ -194,6 +194,13 @@
 	         <artifactId>quartz</artifactId>
 	         <version>1.8.5</version>
 	     </dependency>
+	     
+	     <!-- spring test -->
+	     <dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-test</artifactId>
+			<version>3.1.1.RELEASE</version>
+		 </dependency>
 		 
   </dependencies>
   <build>
