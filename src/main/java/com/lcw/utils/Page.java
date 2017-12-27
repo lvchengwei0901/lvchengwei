@@ -36,6 +36,9 @@ public class Page {
 	private int records;
 	
 	public int getCurrentPage() {
+		if (currentPage == 0) {
+			return 1;
+		}
 		return currentPage;
 	}
 
