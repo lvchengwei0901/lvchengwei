@@ -16,9 +16,9 @@ package com.lcw.utils;
 public class Page {
 	
 	/** 
-	 * 当前页 
+	 * 当前页 （默认当前页为第一页）
 	 */  
-	private int currentPage;
+	private int currentPage=1;
 	
 	/** 
 	 * 总页数 
