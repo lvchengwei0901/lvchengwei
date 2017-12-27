@@ -103,8 +103,8 @@ public class UserController {
 	public Result queryUser(HttpServletRequest request,HttpServletResponse response,UserQuery userQuery){
 		Result result = new Result();
 		try {
-			userQuery.setCurrentPage(3);
-			userQuery.setPageSize(2);
+			//userQuery.setCurrentPage(2);
+			//userQuery.setPageSize(5);
 			PageDto<UserDto> pageDtos = userService.queryUser(userQuery);
 			result.setCode(Constants.SUCCESS);
 			result.setMessage(Constants.SUCCESSMSG);

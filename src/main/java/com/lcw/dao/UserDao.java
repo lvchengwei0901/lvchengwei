@@ -34,5 +34,7 @@ public interface UserDao {
 	public User selectUser(long id);
 	
 	public List<User> queryUser(UserQuery userQuery);
+	
+	public int getQueryUserCount(UserQuery userQuery);
 
 }

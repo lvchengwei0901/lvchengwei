@@ -35,11 +35,6 @@ public class Page {
 	 */  
 	private int records;
 	
-	/** 
-	 * 初始查询的数据
-	 */  
-	private int startRecord;
-
 	public int getCurrentPage() {
 		return currentPage;
 	}
@@ -73,11 +68,11 @@ public class Page {
 	}
 
 	public int getStartRecord() {
-		return startRecord;
+		if(this.currentPage==0){
+			return 0;
+		}else{
+			return (this.currentPage - 1) * this.pageSize;			
+		}
 	}
 
-	public void setStartRecord(int startRecord) {
-		this.startRecord = startRecord;
-	}
-	
 }

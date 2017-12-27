@@ -60,5 +60,17 @@
 		</if>
 		LIMIT #{startRecord},#{pageSize}
 	</select>
+	
+	<select id="getQueryUserCount" parameterType="com.lcw.entity.query.UserQuery" resultType="Integer">
+		SELECT COUNT(1)
+		FROM `user`
+		WHERE is_delete = 0
+		<if test="name != null and name != ''">
+			AND name = #{name}
+		</if>
+		<if test="age != 0">
+			AND age = #{age}
+		</if>
+	</select>
 
 </mapper>
