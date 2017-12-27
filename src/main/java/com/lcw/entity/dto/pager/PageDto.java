@@ -40,11 +40,6 @@ public class PageDto<T> {
 	private int records;
 	
 	/** 
-	 * 初始查询的数据
-	 */  
-	private int startRecord;
-	
-	/** 
 	 * 分页返回结果集
 	 */  
 	private List<T> resultPage;
@@ -79,14 +74,6 @@ public class PageDto<T> {
 
 	public void setRecords(int records) {
 		this.records = records;
-	}
-
-	public int getStartRecord() {
-		return startRecord;
-	}
-
-	public void setStartRecord(int startRecord) {
-		this.startRecord = startRecord;
 	}
 
 	public List<T> getResultPage() {

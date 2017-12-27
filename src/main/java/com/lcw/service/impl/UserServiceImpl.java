@@ -60,9 +60,10 @@ public class UserServiceImpl implements UserService{
 	}
 
 	public PageDto<UserDto> queryUser(UserQuery userQuery) {
-		PageDto<UserDto> pageDto = new PageDto<UserDto>();
 		List<UserDto> userDtos = new ArrayList<UserDto>();
 		List<User> users = userDao.queryUser(userQuery);
+		//全部记录数
+		int records = userDao.getQueryUserCount(userQuery);
 		if(users != null && users.size() > 0){
 			for(User user:users){
 				UserDto userDto = new UserDto();
@@ -70,7 +71,21 @@ public class UserServiceImpl implements UserService{
 				userDtos.add(userDto);
 			}
 		}
+		//设置分页返回参数
+		PageDto<UserDto> pageDto = new PageDto<UserDto>();
 		pageDto.setResultPage(userDtos);
+		pageDto.setRecords(records);
+		pageDto.setCurrentPage(userQuery.getCurrentPage());
+		pageDto.setPageSize(userQuery.getPageSize());
+		int pageCount=0;
+		if(records > 0){
+			if((records%userQuery.getPageSize())==0){
+				pageCount = records/userQuery.getPageSize();
+			}else{
+				pageCount = records/userQuery.getPageSize()+1;
+			}
+		}
+		pageDto.setPageCount(pageCount);
 		return pageDto;
 	}
 
