@@ -28,7 +28,7 @@ public interface UserService {
 	public void updateUser(int age,long id);
 	
 	public User selectUser(long id);
-	
+
 	public void testTransaction();
 	
 	public PageDto<UserDto> queryUser(UserQuery userQuery);
