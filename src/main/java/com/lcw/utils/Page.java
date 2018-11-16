@@ -31,7 +31,7 @@ public class Page {
 	private int pageSize=10;
 	
 	/** 
-	 * 总数据量
+	 * 总数据量（条数）
 	 */  
 	private int records;
 	
